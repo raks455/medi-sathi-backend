@@ -24,3 +24,7 @@ app.include_router(dashboard_router, prefix="/api/v1")
 @app.get("/")
 async def root():
     return {"message": "Medisathi API is running"}
+
+@app.api_route("/health", methods=["GET", "HEAD"])
+async def health():
+    return {"status": "ok"}
